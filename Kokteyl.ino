@@ -143,39 +143,56 @@ void loop() {
 
 int basilanTus(int tDeger) {
   int secTus = 16 ;
-  if (tDeger > 239 && tDeger < 260) secTus = 0;
-  if (tDeger > 170 && tDeger < 230) secTus = 1;
-  if (tDeger > 92 && tDeger < 99) secTus = 2;
-  if (tDeger > 0 && tDeger < 9) secTus = 3;
-  if (tDeger > 390 && tDeger < 410) secTus = 4;
-  if (tDeger > 350 && tDeger < 365) secTus = 5;
-  if (tDeger > 300 && tDeger < 350) secTus = 6;
-  //if(tDeger > 245 && tDeger < 252) secTus = 7;
-  if (tDeger > 500 && tDeger < 510) secTus = 8;
-  if (tDeger > 465 && tDeger < 479) secTus = 9;
-  if (tDeger > 430 && tDeger < 450) secTus = 10;
-  //if(tDeger >= 399 && tDeger < 410) secTus = 11;
-
+  switch(tDeger){
+    case 239 ... 260:
+      secTus = 0;
+      break;
+    case 170 ... 230:
+      secTus = 1;
+      break;
+    case 90 ... 99:
+      secTus = 2;
+      break;
+    case 0 ... 15:
+      secTus = 3;
+      break;
+    case 390 ... 410:
+      secTus = 4;
+      break;
+    case 350 ... 365:
+      secTus = 5;
+      break;
+    case 300 ... 350:
+      secTus = 6;
+      break;
+    case 245 ... 255:
+      secTus = 7;
+      break;
+    case 500 ... 510:
+       secTus = 8;
+      break;
+    case 465 ... 480:
+      secTus = 9;
+      break;
+    case 430 ... 450:
+      secTus = 10;
+      break;
+    case 400 ... 410:
+      secTus = 11;
+      break;
+  }
   return secTus;
 }
 
 void lcdStrDefault(bool tus) {
-  if (tus) {
-    str3[0] = 'S'; str3[1] = '1'; str3[2] = ' ';
-    str3[3] = 'S'; str3[4] = '2'; str3[5] = ' ';
-    str3[6] = 'S'; str3[7] = '3'; str3[8] = ' ';
-    str3[9] = 'S'; str3[10] = '4'; str3[11] = ' ';
-  }
+  if (tus) 
+   *str3 = "S1 S2 S3 S4";
 }
 
 void hazirlaniyor() {
 
   lcdStrClear();
-  str3[0] = 'H'; str3[1] = 'a'; str3[2] = 'z';
-  str3[3] = 'i'; str3[4] = 'r'; str3[5] = 'l';
-  str3[6] = 'a'; str3[7] = 'n'; str3[8] = 'i';
-  str3[9] = 'y'; str3[10] = 'o'; str3[11] = 'r';
-
+  *str3 = "Hazirlaniyor";
 }
 
 void icecekSec(byte icecek) {
